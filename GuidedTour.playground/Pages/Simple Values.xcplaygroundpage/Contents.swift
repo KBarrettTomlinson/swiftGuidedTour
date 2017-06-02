@@ -33,9 +33,15 @@ let explicitDouble: Double = 70
 //:
 //: Values are never implicitly converted to another type. If you need to convert a value to a different type, explicitly make an instance of the desired type.
 //:
+let explicitFloat: Float = 4
+print(explicitFloat)
+
+
 let label = "The width is "
 let width = 94
 let widthLabel = label + String(width)
+let anotherWidthLabel = label + String(width)
+print(anotherWidthLabel)
 
 //: - Experiment:
 //: Try removing the conversion to `String` from the last line. What error do you get?
@@ -46,6 +52,18 @@ let apples = 3
 let oranges = 5
 let appleSummary = "I have \(apples) apples."
 let fruitSummary = "I have \(apples + oranges) pieces of fruit."
+print(appleSummary)
+
+let larrys = 15
+
+let harrys = 23
+let newFriend = "Barry"
+
+let greeting = "I have said hello to \(newFriend) \(larrys+harrys) times"
+
+print(greeting)
+
+
 
 //: - Experiment:
 //: Use `\()` to include a floating-point calculation in a string and to include someone’s name in a greeting.
@@ -53,7 +71,11 @@ let fruitSummary = "I have \(apples + oranges) pieces of fruit."
 //: Create arrays and dictionaries using brackets (`[]`), and access their elements by writing the index or key in brackets. A comma is allowed after the last element.
 //:
 var shoppingList = ["catfish", "water", "tulips", "blue paint"]
+print(shoppingList)
+print(shoppingList[1])
 shoppingList[1] = "bottle of water"
+print(shoppingList[1])
+
 
 var occupations = [
     "Malcolm": "Captain",
