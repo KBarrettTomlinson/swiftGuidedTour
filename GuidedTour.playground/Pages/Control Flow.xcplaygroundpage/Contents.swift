@@ -4,14 +4,18 @@
 //:
 let individualScores = [75, 43, 103, 87, 12]
 var teamScore = 0
+print(teamScore)
 for score in individualScores {
     if score > 50 {
         teamScore += 3
+        print("inside greater than 50 \(teamScore)")
     } else {
         teamScore += 1
+        print("inside less than or equal to 50 \(teamScore)")
     }
 }
 print(teamScore)
+
 
 //: In an `if` statement, the conditional must be a Boolean expression—this means that code such as `if score { ... }` is an error, not an implicit comparison to zero.
 //:
@@ -20,11 +24,18 @@ print(teamScore)
 var optionalString: String? = "Hello"
 print(optionalString == nil)
 
-var optionalName: String? = "John Appleseed"
+
+var optionalName: String? = nil
 var greeting = "Hello!"
 if let name = optionalName {
     greeting = "Hello, \(name)"
+    print(greeting)
 }
+else if optionalName == nil{
+    greeting = "Hey, I don't understand this if let stuff"
+    print(greeting)
+}
+print(greeting)
 
 //: - Experiment:
 //: Change `optionalName` to `nil`. What greeting do you get? Add an `else` clause that sets a different greeting if `optionalName` is `nil`.
