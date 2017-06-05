@@ -2,11 +2,11 @@
 //:
 //: Use `func` to declare a function. Call a function by following its name with a list of arguments in parentheses. Use `->` to separate the parameter names and types from the function’s return type.
 //:
-func greet(person: String, day: String) -> String {
-    return "Hello \(person), today is \(day)."
+func greet(person: String, special: String) -> String {
+    return "Hello \(person), today's lunch special is \(special)."
 }
-greet(person: "Bob", day: "Tuesday")
-
+var x: String = greet(person: "Bob", special: "Chicken Fried Steak")
+print (x)
 //: - Experiment:
 //: Remove the `day` parameter. Add a parameter to include today’s lunch special in the greeting.
 //:
@@ -15,7 +15,7 @@ greet(person: "Bob", day: "Tuesday")
 func greet(_ person: String, on day: String) -> String {
     return "Hello \(person), today is \(day)."
 }
-greet("John", on: "Wednesday")
+print (greet("John", on: "Wednesday"))
 
 //: Use a tuple to make a compound value—for example, to return multiple values from a function. The elements of a tuple can be referred to either by name or by number.
 //:

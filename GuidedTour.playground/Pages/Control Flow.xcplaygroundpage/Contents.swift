@@ -25,10 +25,10 @@ var optionalString: String? = "Hello"
 print(optionalString == nil)
 
 
-var optionalName: String? = nil
+var optionalName: String? = "Karen"
 var greeting = "Hello!"
 if let name = optionalName {
-    greeting = "Hello, \(name)"
+    greeting = "Hello, \(optionalName!)"
     print(greeting)
 }
 else if optionalName == nil{
@@ -44,9 +44,10 @@ print(greeting)
 //:
 //: Another way to handle optional values is to provide a default value using the `??` operator. If the optional value is missing, the default value is used instead.
 //:
-let nickName: String? = nil
+let nickName: String? = "Blerb"
 let fullName: String = "John Appleseed"
 let informalGreeting = "Hi \(nickName ?? fullName)"
+print(informalGreeting)
 
 //: Switches support any kind of data and a wide variety of comparison operations—they aren’t limited to integers and tests for equality.
 //:
@@ -77,28 +78,37 @@ let interestingNumbers = [
     "Square": [1, 4, 9, 16, 25],
 ]
 var largest = 0
-for (kind, numbers) in interestingNumbers {
+var largestKind: String? = nil
+for (kittyfoo, numbers) in interestingNumbers {
+    print(kittyfoo)
     for number in numbers {
+        print(kittyfoo, number, numbers)
         if number > largest {
             largest = number
+            largestKind = kittyfoo
+            print("one",largest, largestKind!)
         }
+    print("two",largest)
     }
+print("three",largest)
 }
-print(largest)
+print("final",largest,largestKind!)
 
 //: - Experiment:
 //: Add another variable to keep track of which kind of number was the largest, as well as what that largest number was.
 //:
 //: Use `while` to repeat a block of code until a condition changes. The condition of a loop can be at the end instead, ensuring that the loop is run at least once.
 //:
-var n = 2
+var n = 100
 while n < 100 {
     n *= 2
+    print("inside while", n)
 }
-print(n)
+print("while first", n)
 
-var m = 2
+var m = 15
 repeat {
+    print("inside repeat", m)
     m *= 2
 } while m < 100
 print(m)
@@ -106,8 +116,15 @@ print(m)
 //: You can keep an index in a loop by using `..<` to make a range of indexes.
 //:
 var total = 0
-for i in 0..<4 {
-    total += i
+for i in 0...4 {
+    print("this is i", i)
+    total += i + 15
+    var p = 0
+    while p < 100 {
+        print("I'm inside the while", p)
+        p += 1
+    }
+    print("this is total", total)
 }
 print(total)
 
