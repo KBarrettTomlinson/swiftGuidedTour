@@ -7,6 +7,10 @@ class Shape {
     func simpleDescription() -> String {
         return "A shape with \(numberOfSides) sides."
     }
+    let length = 15
+    func calculatePerimeter() -> Int {
+        return length * numberOfSides
+    }
 }
 
 //: - Experiment:
