@@ -121,8 +121,8 @@ class EquilateralTriangle: NamedShape {
         get {
              return 3.0 * sideLength
         }
-        set {
-            sideLength = newValue / 3.0
+        set(kittyCat) {
+            sideLength = kittyCat / 3.0
         }
     }
 
