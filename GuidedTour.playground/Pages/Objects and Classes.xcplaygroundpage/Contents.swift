@@ -21,6 +21,9 @@ class Shape {
 var shape = Shape()
 shape.numberOfSides = 7
 var shapeDescription = shape.simpleDescription()
+print(shapeDescription)
+var shapePerimeter = shape.calculatePerimeter()
+print(shapePerimeter)
 
 //: This version of the `Shape` class is missing something important: an initializer to set up the class when an instance is created. Use `init` to create one.
 //:
@@ -36,6 +39,13 @@ class NamedShape {
        return "A shape with \(numberOfSides) sides."
     }
 }
+
+var name = "bobby"
+print(name)
+var bobbySquare = NamedShape(name: name)
+print(bobbySquare)
+print(bobbySquare.name)
+
 
 //: Notice how `self` is used to distinguish the `name` property from the `name` argument to the initializer. The arguments to the initializer are passed like a function call when you create an instance of the class. Every property needs a value assigned—either in its declaration (as with `numberOfSides`) or in the initializer (as with `name`).
 //:
@@ -62,9 +72,36 @@ class Square: NamedShape {
         return "A square with sides of length \(sideLength)."
     }
 }
-let test = Square(sideLength: 5.2, name: "my test square")
-test.area()
-test.simpleDescription()
+
+class Circle: NamedShape{
+    var radius: Double
+    
+    init(radius: Double, name: String) {
+        self.radius = radius
+        super.init(name: name)
+    }//end init
+    
+    func area() -> Double{
+        return .pi*(radius*radius)
+    }
+    
+    override func simpleDescription() -> String {
+        return "A circle with radius of length \(radius)."
+    }
+    
+}//ends Circle subclass
+let sillyCircle = Circle(radius: 23, name: "sillyPants")
+print (sillyCircle.simpleDescription())
+print (sillyCircle.area())
+print (sillyCircle.radius)
+sillyCircle.radius = 23423
+print (sillyCircle.radius)
+print (sillyCircle.area())
+
+let test = Square(sideLength: 97.2, name: "my test square")
+print(test)
+print(test.area())
+print(test.simpleDescription())
 
 //: - Experiment:
 //: Make another subclass of `NamedShape` called `Circle` that takes a radius and a name as arguments to its initializer. Implement an `area()` and a `simpleDescription()` method on the `Circle` class.
