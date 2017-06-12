@@ -36,6 +36,7 @@ func calculateStatistics(scores: [Int]) -> (min: Int, max: Int, sum: Int) {
     return (min, max, sum)
 }
 let statistics = calculateStatistics(scores: [5, 3, 100, 3, 9])
+print("statistics",statistics)
 print(statistics.sum)
 print(statistics.2)
 
@@ -48,8 +49,34 @@ func sumOf(numbers: Int...) -> Int {
     }
     return sum
 }
-sumOf()
-sumOf(numbers: 42, 597, 12)
+print(sumOf())
+print(sumOf(numbers: 42, 597, 12))
+var kitten = sumOf(numbers: 34, 4, 11)
+print("kitten",kitten)
+kitten = 35
+print(kitten)
+print("wake up swift")
+
+
+func avgOf(numbers: Int...) -> Int{
+    var sum: Int = 0
+    var count: Int = 0
+    var avg: Int = 0
+    
+    for number in numbers {
+        sum += number
+        count += 1
+    }
+    
+    if count != 0{
+        avg = sum / count
+    }
+    return avg
+}
+
+print("avgOf",avgOf(numbers: 5,10,15,20,50))
+
+
 
 //: - Experiment:
 //: Write a function that calculates the average of its arguments.
@@ -66,6 +93,8 @@ func returnFifteen() -> Int {
 }
 returnFifteen()
 
+print(returnFifteen())
+
 //: Functions are a first-class type. This means that a function can return another function as its value.
 //:
 func makeIncrementer() -> ((Int) -> Int) {
@@ -75,6 +104,7 @@ func makeIncrementer() -> ((Int) -> Int) {
     return addOne
 }
 var increment = makeIncrementer()
+print(increment)
 increment(7)
 
 //: A function can take another function as one of its arguments.
@@ -91,14 +121,29 @@ func lessThanTen(number: Int) -> Bool {
     return number < 10
 }
 var numbers = [20, 19, 7, 12]
-hasAnyMatches(list: numbers, condition: lessThanTen)
+print(hasAnyMatches(list: numbers, condition: lessThanTen))
+func isFifteen(number: Int) -> Bool {
+    return number == 15
+}
+numbers = [13,12,19,18,15]
+
+print(hasAnyMatches(list: numbers, condition: isFifteen))
 
 //: Functions are actually a special case of closures: blocks of code that can be called later. The code in a closure has access to things like variables and functions that were available in the scope where the closure was created, even if the closure is in a different scope when it is executed—you saw an example of this already with nested functions. You can write a closure without a name by surrounding code with braces (`{}`). Use `in` to separate the arguments and return type from the body.
 //:
-numbers.map({ (number: Int) -> Int in
+print(numbers.map({ (number: Int) -> Int in
+    print(number)
+    print(number % 2)
+    print(number % 2 == 0)
+    if (number % 2) == 0{
     let result = 3 * number
     return result
-})
+    }
+    else{
+        let result = 0
+        return result
+    }
+}))
 
 //: - Experiment:
 //: Rewrite the closure to return zero for all odd numbers.
