@@ -22,8 +22,12 @@ enum Rank: Int {
     }
 }
 let ace = Rank.ace
+let king = Rank.king
+print(king)
+//print(kingRawValue = king.rawValue)
+print(ace)
 let aceRawValue = ace.rawValue
-
+print(ace.rawValue)
 //: - Experiment:
 //: Write a function that compares two `Rank` values by comparing their raw values.
 //:
