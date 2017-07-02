@@ -29,12 +29,11 @@ print(shapePerimeter, "<-- shapePerimeter")
 //: This version of the `Shape` class is missing something important: an initializer to set up the class when an instance is created. Use `init` to create one.
 //:
 class NamedShape {
-    var numberOfSides: Int
+    var numberOfSides: Int = 0
     var name: String
 
-    init(name: String, numberOfSides: Int) {
+    init(name: String) {
         self.name = name
-        self.numberOfSides = numberOfSides
     }
 
     func simpleDescription() -> String {
@@ -53,6 +52,10 @@ print(karenSquare.numberOfSides)
 karenSquare.numberOfSides = 35
 print(karenSquare.numberOfSides)
 var seanSquare = NamedShape(name: "Sean")
+print(seanSquare)
+print(seanSquare.name)
+
+
 
 
 

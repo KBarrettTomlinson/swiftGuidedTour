@@ -21,13 +21,37 @@ enum Rank: Int {
         }
     }
 }
+let two = Rank.two
+let twoRawValue = two.rawValue
+print (two, "two", twoRawValue, "twoRawValue")
+let three = Rank.three
+let threeRawValue = three.rawValue
+print(threeRawValue)
+print(three.simpleDescription(), "<--")
 let ace = Rank.ace
 let king = Rank.king
 print(king)
-//print(kingRawValue = king.rawValue)
+let kingRawValue = king.rawValue
+print(kingRawValue)
+let queen = Rank.queen
+print(queen)
+let queenRawValue = queen.rawValue
+print(queenRawValue)
 print(ace)
 let aceRawValue = ace.rawValue
 print(ace.rawValue)
+let carol = Rank.jack
+print(carol)
+
+func compareRanks(rawValueOne: Int, rawValueTwo: Int) -> Bool {
+    if (rawValueOne == rawValueTwo){
+        return true
+    }
+    return false
+}
+
+print(compareRanks(rawValueOne: ace.rawValue, rawValueTwo: carol.rawValue))
+
 //: - Experiment:
 //: Write a function that compares two `Rank` values by comparing their raw values.
 //:
