@@ -3,12 +3,13 @@
 //: Use `class` followed by the class’s name to create a class. A property declaration in a class is written the same way as a constant or variable declaration, except that it is in the context of a class. Likewise, method and function declarations are written the same way.
 //:
 class Shape {
-    var numberOfSides = 0
-    func simpleDescription() -> String {
+    var numberOfSides: Int = 0
+    let length: Int = 15
+    
+    func simpleDescription(numberOfSides: Int) -> String {
         return "A shape with \(numberOfSides) sides."
     }
-    let length = 15
-    func calculatePerimeter() -> Int {
+    func calculatePerimeter(numberOfSides: Int, length: Int) -> Int {
         return length * numberOfSides
     }
 }
@@ -20,19 +21,20 @@ class Shape {
 //:
 var shape = Shape()
 shape.numberOfSides = 7
-var shapeDescription = shape.simpleDescription()
+var shapeDescription = shape.simpleDescription(numberOfSides: shape.numberOfSides)
 print(shapeDescription)
-var shapePerimeter = shape.calculatePerimeter()
-print(shapePerimeter)
+var shapePerimeter = shape.calculatePerimeter(numberOfSides: shape.numberOfSides, length: shape.length)
+print(shapePerimeter, "<-- shapePerimeter")
 
 //: This version of the `Shape` class is missing something important: an initializer to set up the class when an instance is created. Use `init` to create one.
 //:
 class NamedShape {
-    var numberOfSides: Int = 0
+    var numberOfSides: Int
     var name: String
 
-    init(name: String) {
-       self.name = name
+    init(name: String, numberOfSides: Int) {
+        self.name = name
+        self.numberOfSides = numberOfSides
     }
 
     func simpleDescription() -> String {
@@ -45,6 +47,14 @@ print(name)
 var bobbySquare = NamedShape(name: name)
 print(bobbySquare)
 print(bobbySquare.name)
+var karenSquare = NamedShape(name: "Karen")
+print(karenSquare.name)
+print(karenSquare.numberOfSides)
+karenSquare.numberOfSides = 35
+print(karenSquare.numberOfSides)
+var seanSquare = NamedShape(name: "Sean")
+
+
 
 
 //: Notice how `self` is used to distinguish the `name` property from the `name` argument to the initializer. The arguments to the initializer are passed like a function call when you create an instance of the class. Every property needs a value assigned—either in its declaration (as with `numberOfSides`) or in the initializer (as with `name`).
